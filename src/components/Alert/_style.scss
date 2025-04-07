@@ -1,0 +1,57 @@
+@use "../../style/mixin";
+@use "../../style/variables";
+
+@use 'sass:color';
+$alert-colors: 
+(
+  "default":    variables.$primary,
+  "success":    variables.$success,
+  "warning":    variables.$warning,
+  "danger":     variables.$danger,
+);
+.at-alert{
+    background: transparent;
+    border-radius: variables.$border-radius;
+    padding: variables.$alert-padding-y variables.$alert-padding-x;
+    min-width: 340px;
+    width: fit-content;
+    position: relative;
+    margin: 0 auto;
+}
+// .alert-container{
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+// }
+.at-alert-title{
+    font-size: variables.$title-font-size;
+    margin-bottom: variables.$alert-margin-bottom;
+    font-weight: variables.$font-weight-bold;
+}
+.at-alert-close{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    color: variables.$white;
+    button{
+        color: variables.$white;
+        .at-icon{
+            transition: transform 0.3s ease-in-out;
+        }
+        &:hover{
+            .at-icon{
+                transform: rotate(90deg) scale(1.15);
+            }
+        }
+    }
+}
+.at-alert-content{
+    font-size: variables.$alert-description-font-size;
+    margin: variables.$alert-description-top-margin 0 0;
+}
+@each $color, $value in $alert-colors {
+    .at-alert-#{$color} {
+      @include mixin.alert-style($value, color.adjust($value, $lightness: -5%), variables.$white);
+    }
+  }

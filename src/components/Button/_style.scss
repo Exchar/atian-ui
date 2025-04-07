@@ -1,0 +1,90 @@
+@use "../../style/mixin";
+@use "../../style/variables";
+
+.at-btn{
+    position: relative;
+    display: inline-block;
+    font-weight: variables.$btn-font-weight;
+    line-height: variables.$btn-line-height;
+    text-align: center;
+    color: variables.$body-color;
+    white-space: nowrap;
+    vertical-align: middle;
+    background-image: none;
+    border: variables.$btn-border-width solid transparent;
+    padding: variables.$btn-padding-y variables.$btn-padding-x;
+    font-size: variables.$btn-font-size;
+    border-radius: variables.$border-radius;
+    @include mixin.button-size(variables.$btn-padding-x, variables.$btn-padding-y, variables.$btn-font-size, variables.$btn-border-radius);
+    box-shadow: variables.$btn-box-shadow;
+    cursor: pointer;
+    transition: variables.$btn-transition;
+    &.disabled,
+    &[disabled]{
+        cursor: not-allowed;
+        opacity: variables.$btn-disabled-opacity;
+        box-shadow: none;
+        // pointer-events: none;
+        user-select: none;
+        >*{
+            pointer-events: none;
+        }
+    }
+    & ~.at-btn{
+        margin-left: variables.$btn-margin;
+    }
+    &:focus{
+        outline: 0;
+    }
+}
+
+.at-btn-lg{
+    @include mixin.button-size(variables.$btn-padding-x-lg, variables.$btn-padding-y-lg, variables.$btn-font-size-lg, variables.$btn-border-radius-lg);
+}
+.at-btn-sm{
+    @include mixin.button-size(variables.$btn-padding-x-sm, variables.$btn-padding-y-sm, variables.$btn-font-size-sm, variables.$btn-border-radius-sm);
+}
+
+.at-btn-primary{
+    @include mixin.button-style(variables.$primary, variables.$primary, variables.$white);
+}
+
+.at-btn-danger{
+    @include mixin.button-style(variables.$danger, variables.$danger, variables.$white);
+}
+.at-btn-default{
+    @include mixin.button-style(variables.$white, variables.$gray-400, variables.$body-color,variables.$white,variables.$primary,variables.$primary);
+}
+.at-btn-warning{
+    @include mixin.button-style(variables.$warning, variables.$warning, variables.$white);
+}
+.at-btn-success{
+    @include mixin.button-style(variables.$success, variables.$success, variables.$white);
+}
+.at-btn-text{
+    font-weight: variables.$font-weight-normal;
+    color: variables.$btn-link-color;
+    text-decoration: none;
+    box-shadow: none;
+    background: transparent;
+}
+.at-btn-link{
+    font-weight: variables.$font-weight-normal;
+    color: variables.$btn-link-color;
+    text-decoration: none;
+    box-shadow: none;
+    background: transparent;
+    &:hover{
+        color: variables.$btn-link-hover-color;
+        text-decoration: variables.$link-hover-decoration;
+    }
+    &:foucs,&.focus{
+        text-decoration: variables.$link-hover-decoration;
+        box-shadow: none;
+    }
+    &.disabled{
+        color: variables.$btn-link-disabled-color;
+        cursor: not-allowed;
+        pointer-events: none;
+    }
+}

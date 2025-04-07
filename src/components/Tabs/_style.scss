@@ -1,0 +1,83 @@
+@use "../../style/variables";
+
+.at-tabs{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: variables.$tabs-bg-color;
+    overflow: hidden;
+}
+.at-tabs-nav{
+    list-style: none;
+    display: flex;
+    box-sizing: bo;
+    padding: 0 4px;
+    border-bottom: variables.$tabs-border-width solid variables.$tabs-border-color;
+}
+.at-tabs-nav-item{
+    position: relative;
+    display: flex;
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: center;
+    padding: 0 16px;
+    font-size: variables.$tabs-font-size;
+    color: variables.$tabs-font-color;
+    cursor: pointer;
+    // transition: $tabs-transition;
+    border: variables.$tabs-border-width solid transparent;
+    border-bottom-color: variables.$white;
+    border-radius: variables.$tabs-border-radius;
+    font-weight: variables.$font-weight-bold;
+    &:after{
+        content:'';
+        position:absolute;
+        bottom:-(variables.$tabs-border-width);
+        left:0;
+        right:0;
+        height:variables.$tabs-border-width;
+        background-color:transparent;
+    }
+    &.is-active{
+        color: variables.$primary;
+        background-color: variables.$tabs-active-bg-color;
+        &:after{
+            background-color: variables.$primary;
+        }
+    }
+    &:hover{
+        color: variables.$primary;
+        background-color: variables.$tabs-hover-bg-color;
+        border-bottom-color: variables.$tabs-border-color;
+    }
+}
+.at-tabs.nav-card{
+    border-radius: variables.$tabs-border-radius;
+    .at-tabs-nav-item{
+        border-bottom-color: variables.$tabs-border-color;
+        &:after{
+            display: none;
+        }
+    }
+    .at-tabs-nav-item.is-active{
+        background-color: variables.$white;
+        border: variables.$tabs-border-width solid variables.$primary;
+        border-radius: variables.$tabs-border-radius variables.$tabs-border-radius 0 0;
+        border-bottom-color: variables.$white;
+        &:after{
+            display: none;
+        }
+    }
+}
+.at-tabs.nav-line{
+    .at-tabs-nav-item{
+        border-bottom-color: transparent;
+        &:after{
+            height: variables.$tabs-line-active-height;
+        }
+    }
+    .at-tabs-nav-item:hover{
+        color: variables.$primary;
+        border-bottom-color: variables.$tabs-border-color;
+    }
+}

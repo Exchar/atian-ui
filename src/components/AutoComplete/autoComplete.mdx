@@ -1,0 +1,49 @@
+import { Meta,Story,Canvas,Controls } from "@storybook/blocks";
+import {AutoComplete} from './autoComplete';
+import * as AutoCompleteStories from './autoComplete.stories';
+
+
+<Meta of={AutoCompleteStories}></Meta>
+
+# 输入下拉建议 AutoComplete
+AutoComplete 组件是一个输入框，用户在输入时会自动弹出下拉建议列表，帮助用户快速选择和输入内容。它通常用于搜索框、表单输入等场景。AutoComplete 组件可以通过 props 配置数据源、样式和行为等。
+
+# 引入方式
+```javascript
+import { AutoComplete } from 'at-ui'
+```
+
+# 简单使用
+<Canvas of={AutoCompleteStories.DefaultAutoComplete} story={{
+    height: '300px'
+}}>
+
+</Canvas>
+
+
+# Props
+AutoComplete 组件的属性定义了组件的行为和外观。以下是 AutoComplete 组件的主要属性：
+
+<Controls></Controls>
+
+
+# 自定义模板
+AutoComplete 组件允许开发者自定义下拉建议列表的模板。可以通过 `renderOption` 属性传入一个函数，返回自定义的 JSX 元素。以下是一个示例：
+
+<Canvas  of={AutoCompleteStories.SampleDataItemComplete} source={{
+    type: 'auto',
+}} story={{
+    height: '300px'
+}}>
+
+</Canvas>
+
+# 异步fetchsuggestions
+AutoComplete 组件支持异步获取下拉建议列表。可以通过 `fetchSuggestions` 属性传入一个函数，返回一个 Promise 对象。以下是一个示例：
+
+<Canvas  of={AutoCompleteStories.asyncDataItemComplete} source={{
+    type: 'auto',
+}} story={{
+    height: '300px'
+}}>
+</Canvas>

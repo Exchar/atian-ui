@@ -1,0 +1,7 @@
+@use "../../style/variables";
+
+@each $key,$val in variables.$theme-colors{
+    .icon-#{$key}{
+        color: $val;
+    }
+}

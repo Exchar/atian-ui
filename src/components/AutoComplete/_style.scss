@@ -1,0 +1,51 @@
+@use "../../style/mixin";
+@use "../../style/variables";
+@use "../../style/animations";
+
+.at-autocomplete{
+    position: relative;
+}
+.at-suggestion-list{
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    float: left;
+    min-width: 160px;
+    // padding: variables.$autocomplete-dropdown-padding;
+    margin: 2px 0 0;
+    font-size: variables.$font-size-base;
+    color: variables.$body-color;
+    text-align: left;
+    list-style: none;
+    background-color: variables.$white;
+    background-clip: padding-box;
+    border: 1px solid variables.$border-color;
+    border-radius: variables.$border-radius;
+    box-shadow: variables.$box-shadow;
+    max-height: 10rem;
+    overflow-y: auto;
+    padding: 0;
+    .at-suggestion-loading-icon{
+        padding: variables.$autocomplete-dropdown-item-padding;
+        margin: 0.2rem;
+    }
+}
+.at-suggestion-item{
+    list-style: none;
+    padding: variables.$autocomplete-dropdown-item-padding;
+    margin: 0.2rem;
+    border-radius: variables.$border-radius;
+    &:hover{
+        background-color: variables.$gray-100;
+        color: variables.$black;
+    }
+    &.item-highlighted{
+        background-color: variables.$gray-400;
+        color: variables.$black;
+    }
+    &.item-active{
+        background-color: variables.$primary;
+        color: variables.$white;
+    }
+}

@@ -1,0 +1,13 @@
+@use "../../style/variables";
+
+.at-card{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    padding: variables.$card-paddding;
+    box-shadow: variables.$card-box-shadow;
+    border-radius: variables.$card-border-radius;
+    margin: variables.$card-margin;
+    background-color: variables.$white;
+}
