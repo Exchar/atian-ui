@@ -25,7 +25,9 @@
         opacity: variables.$btn-disabled-opacity;
         box-shadow: none;
         // pointer-events: none;
+        -webkit-user-select: none;
         user-select: none;
+
         >*{
             pointer-events: none;
         }
