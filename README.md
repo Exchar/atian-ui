@@ -2,6 +2,8 @@
 
 AT-UI 是一个基于 React 的组件库，提供了一系列常用的 UI 组件。提供了常用的组件和工具，帮助开发者快速构建现代化的用户界面。它的设计理念是简洁、易用和高效，旨在提高开发效率和用户体验。
 
+借助tailwind的能力，组件追求简洁、优雅的外观，同时也提供了丰富的定制化选项，让开发者可以根据自己的需求进行个性化定制。
+
 ## 主要特性 Features
 
 - **易于使用**：AT-UI 提供了简单易用的 API 和文档，帮助开发者快速上手。
@@ -17,14 +19,45 @@ AT-UI 是一个基于 React 的组件库，提供了一系列常用的 UI 组件
 - **支持多种主题**：AT-UI 提供了多种主题和样式，开发者可以根据项目需求选择合适的主题。
 - **支持多种平台**：AT-UI 支持多种平台和设备，包括桌面、移动端和 Web 应用。
 
-## 主要组件 Main Components
+## 组件开发进度
 
-| 组件 | 使用  |
-| - | :- |
-| Button 按钮 | <a href={window.location.origin+'?path='+'/docs/组件-button-按钮--使用说明-docs'}>使用</a> |
-| Menu 菜单 | <a href={window.location.origin+'?path='+'/docs/组件-button-按钮--使用说明-docs'}>使用</a> |
-| Alert 提示 | <a href={window.location.origin+'?path='+'/docs/组件-button-按钮--使用说明-docs'}>使用</a> |
-| Transition 过渡 | <a href={window.location.origin+'?path='+'/docs/组件-button-按钮--使用说明-docs'}>使用</a> |
-| Card 卡片 | <a href={window.location.origin+'?path='+'/docs/组件-button-按钮--使用说明-docs'}>使用</a> |
-| Icon 图标 | <a href={window.location.origin+'?path='+'/docs/组件-button-按钮--使用说明-docs'}>使用</a> |
-| Tabs 标签页 | <a href={window.location.origin+'?path='+'/docs/组件-button-按钮--使用说明-docs'}>使用</a> |
+- [☑️] Button 按钮
+- [☑️] Alert 提示
+- [☑️] Transition 过渡
+- [☑️] Card 卡片
+- [☑️] Input 输入框
+- [☑️] Select 下拉框
+- [☑️] AutoComplete 自动完成
+- [☑️] Tabs 标签页
+- [☑️] Icon 图标  FontAwesome
+- [☑️] Menu 导航菜单
+- [❌] Grid 栅格
+- [❌] Layout 布局
+- [❌] Table 表格
+- [❌] Pagination 分页
+- [❌] Toast 轻提示
+- [❌] Message 消息提示
+- [❌] Dialog 对话框
+- [❌] Drawer 抽屉
+- [❌] Switch 开关
+- [❌] Radio 单选框
+- [❌] Checkbox 多选框
+- [❌] Menu 菜单
+- [❌] TimePicker 时间选择器
+- [❌] DatePicker 日期选择器
+- [❌] Upload 上传
+- [❌] Rate 评分
+- [❌] Progress 进度条
+- [❌] Skeleton 骨架屏
+- [❌] Breadcrumb 面包屑
+- [❌] Steps 步骤条
+- [❌] Collapse 折叠面板
+- [❌] Carousel 轮播图
+- [❌] Collapse 折叠面板
+- [❌] Cascader 级联选择器
+- [❌] Transfer 穿梭框
+- [❌] Calendar 日历
+- [❌] ColorPicker 颜色选择器
+- [❌] Form 表单
+- [❌] InputNumber 数字输入框
+- [❌] FormItem 表单项
