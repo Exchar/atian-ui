@@ -10,8 +10,8 @@ export default defineConfig({
   dts({ 
     rollupTypes: true, 
     tsconfigPath: './tsconfig.build.json',    
-    outDir: 'dist/es' }
-  )
+    outDir: ['dist/es','dist'] }
+  ),
   ],
   test: {
     environment: "jsdom",
@@ -35,7 +35,7 @@ export default defineConfig({
     minify: 'terser',
     lib:{
       entry: resolve(__dirname, 'src/index.tsx'),
-      name: 'AT-UI',
+      name: 'atian-ui',
       fileName: (format) => `atian-ui.${format}.js`,
       // formats: ['es', 'umd'],
     },
@@ -48,13 +48,6 @@ export default defineConfig({
           axios: 'axios',
 				}
 			},
-      // {
-      //   format: "es",
-      //   entryFileNames: "[name].js",
-      //   exports: "named",
-      //   name: "AT-UI",
-      //   dir: "./dist/dist",
-      // },
       {
           format: "es",
           entryFileNames: "[name].js",
