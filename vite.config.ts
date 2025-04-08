@@ -10,7 +10,7 @@ export default defineConfig({
   dts({ 
     rollupTypes: true, 
     tsconfigPath: './tsconfig.build.json',    
-    outDir: ['dist/es','dist'] }
+    outDir: ['dist/es','dist','dist/umd'] }
   ),
   ],
   test: {
@@ -36,7 +36,7 @@ export default defineConfig({
     lib:{
       entry: resolve(__dirname, 'src/index.tsx'),
       name: 'atian-ui',
-      fileName: (format) => `atian-ui.${format}.js`,
+      fileName:`index`,
       // formats: ['es', 'umd'],
     },
     rollupOptions: {
@@ -65,7 +65,7 @@ export default defineConfig({
           preserveModules: false,
           preserveModulesRoot: "src",
           dir: "./dist/umd",
-          name: "AT-UI",
+          name: "atian-ui",
       },
     ]
 		}

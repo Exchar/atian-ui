@@ -25,7 +25,7 @@
     "dist"
   ],
   "main": "./dist/umd/index.js",
-  "module": "./dist/atian-ui.es.js",
+  "module": "./dist/index.js",
   "exports": {
     ".": {
       "import": "./dist/es/index.js",
