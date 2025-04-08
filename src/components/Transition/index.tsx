@@ -2,4 +2,4 @@ import Transition from "./transition";
 
 
 export default Transition
-export * from "./transition"
+export {default as Transition,type TransitionProps} from "./transition"

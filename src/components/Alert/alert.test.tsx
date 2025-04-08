@@ -1,12 +1,14 @@
 import { describe, expect, it,vi } from "vitest";
-import { fireEvent, render, screen } from "@testing-library/react";
+import { render, fireEvent } from "@testing-library/react";
 import Alert, { AlertSize, AlertType } from "./alert";
+import { config } from "react-transition-group";
 
 const defaultProps = {
     alertType: 'danger' as AlertType,
     alertSize: AlertSize.Large,
     onclick: vi.fn()
 }
+config.disabled = true
 
 describe('测试Alert组件',()=> {
     it('show render default current alert component', () => {
@@ -38,8 +40,8 @@ describe('测试Alert组件',()=> {
         const closeElement = document.querySelector('.at-alert-close>.at-btn')
         expect(closeElement).toBeInTheDocument()
         const element = document.querySelector('.at-alert')
-        // fireEvent.click(closeElement as HTMLButtonElement)
+        fireEvent.click(closeElement as HTMLButtonElement)
         //  expect(closeElement).not.toBeInTheDocument()
-        // expect(element).not.toBeInTheDocument()
+        expect(element).not.toBeInTheDocument()
     })
 })

@@ -1,4 +1,4 @@
 /// <reference types="vite/client" />
-declare module NodeJS{
-    type Timeout = any
+declare namespace NodeJS{
+    type Timeout = NodeJS.Timeout
 }

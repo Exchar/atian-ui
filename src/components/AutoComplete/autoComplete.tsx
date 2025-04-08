@@ -91,7 +91,7 @@ const dropDownComponent:React.FC<DropDownProps> = forwardRef<EDropdownProps,Drop
     useImperativeHandle(ref,()=> ({
         handleKeyEvent,
         setHighlightIndex
-    }),[highlightIndex,suggestions])
+    }),[handleKeyEvent])
     const generateSuggestions = useCallback(()=>{
         return suggestions.map((item,index) => {
             const classes = classNames('at-suggestion-item', {
@@ -102,7 +102,7 @@ const dropDownComponent:React.FC<DropDownProps> = forwardRef<EDropdownProps,Drop
                 {renderTemplate(item)}
             </li>
         })
-    },[suggestions,renderTemplate,highlightIndex])
+    },[suggestions,renderTemplate,highlightIndex,onSelect])
     const nodeRef = useRef(null)
     return (
         <Transition 
@@ -194,7 +194,7 @@ export function AutoComplete(props:AutoCompleteProps) {
         if(dropdownRef.current){
             dropdownRef.current.setHighlightIndex(-1)
         }
-    },[debouncedValue])
+    },[debouncedValue,fetchSuggestions])
 
     const handleChange = (e:React.ChangeEvent<HTMLInputElement>)=> {
         const value = (e.target.value || '').trim()

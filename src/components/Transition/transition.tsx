@@ -5,7 +5,7 @@ import classNames from 'classnames'
 
 type AnimationName = 'zoom-in-top' | 'zoom-in-left' | 'zoom-in-bottom' | 'zoom-in-right'
 
-type TransitionProps = CSSTransitionProps & {
+export type TransitionProps = CSSTransitionProps & {
   animation?: AnimationName,
   wrapper?: boolean,
   children?: ReactNode,
@@ -24,7 +24,6 @@ const Transition: React.FC<TransitionProps> = (props) => {
     appear = true,
     faster = false,
     presetAnimate,
-    unmountOnExit = true,
     ...restProps
   } = props
   const animationSet = (presetAnimate && presetAnimate?.length===2) ? {

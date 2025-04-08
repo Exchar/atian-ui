@@ -80,7 +80,7 @@ export const SampleDataItemComplete: StoryObj<typeof AutoComplete> = {
             {value: 'AD', number: 34},
         ]
         const handleFetch = (query: string) => lakersWithNumber.filter(laker => laker.value.includes(query))
-        const renderOption = (item: DataSourceType<Record<string, any>>) => {
+        const renderOption = (item: DataSourceType<Record<string,any>>) => {
             const typedItem = item as DataSourceType<lakerProps>;
             return (
                 <>
@@ -106,7 +106,7 @@ export const SampleDataItemComplete: StoryObj<typeof AutoComplete> = {
 const renderAutoCompleteItem = (args:AutoCompleteProps) => {
     const handleFetch = (query: string) => fetch(`https://api.github.com/search/users?q=${query}`)
     .then(res => res.json())
-    .then(({items}) => items.slice(0, 10).map((item: any) => ({value: item.login, ...item})))
+    .then(({items}) => items.slice(0, 10).map((item: { login: string; [key: string]: unknown }) => ({value: item.login, ...item})))
     return (
         <AutoComplete  
         {...args}

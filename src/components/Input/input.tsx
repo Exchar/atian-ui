@@ -1,6 +1,6 @@
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
 import classNames from "classnames";
-import { InputHTMLAttributes, useState } from "react";
+import { InputHTMLAttributes } from "react";
 import React from "react";
 import Icon from "../Icon/icon";
 type InputSize = 'lg' | 'sm';
