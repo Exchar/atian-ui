@@ -1,8 +1,8 @@
-import React from "react";
+// import React from "react";
 import {cleanup, fireEvent, render, RenderResult, waitFor} from '@testing-library/react'
 
 import Menu,{MenuProps,MenuMode} from "./menu";
-import MenuItem,{MenuItemProps} from "./menu-item";
+import MenuItem from "./menu-item";
 import { vi } from "vitest";
 import SubMenu from "./submenu";
 import { config } from 'react-transition-group'

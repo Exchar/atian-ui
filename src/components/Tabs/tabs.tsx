@@ -13,7 +13,7 @@ export interface TabsProps{
     type?: TabsType,
     tabsHeight?: number
 }
-export default function Tabs(props:TabsProps){
+export function Tabs(props:TabsProps){
     const {
         className,
         style,
@@ -82,3 +82,5 @@ export default function Tabs(props:TabsProps){
         </div>
     )
 }
+
+export default Tabs

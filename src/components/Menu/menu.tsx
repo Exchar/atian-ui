@@ -71,10 +71,11 @@ export const Menu: React.FC<MenuProps> = (props)=> {
         return React.Children.map(children,(child,index)=> {
             // ReactElement<P, React.FunctionComponent<P>>
             const childElement = child as React.ReactElement<MenuItemProps,React.FunctionComponent<MenuItemProps>>;
-            const {displayName} = childElement.type;
+            const {name} = childElement.type;
+            // console.log(childElement.type.name)
             // console.log(childElement,name);
             
-            if(displayName === 'MenuItem' || displayName==='SubMenu'){
+            if(name === 'MenuItem' || name==='SubMenu'){
                 return React.cloneElement(childElement,{
                     index: index.toString()
                 })

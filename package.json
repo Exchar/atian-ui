@@ -38,11 +38,14 @@
     "build:ts": "tsc -p tsconfig.build.json",
     "build": "rimraf dist &&vite build",
     "build:css": "sass src/style/index.scss dist/style.css",
-    "lint": "eslint .",
+    "lint": "eslint ./src",
     "preview": "vite preview",
     "test": "vitest",
+    "test:nowatch": "vitest --watch=false",
     "dev": "storybook dev -p 6006",
-    "build-storybook": "storybook build --docs"
+    "build-storybook": "storybook build --docs",
+    "prepublish": "npm run test:nowatch&&npm run lint && npm run build",
+    "prepare": "husky"
   },
   "unpkg": "./dist/umd/index.js",
   "sideEffects": [
@@ -106,6 +109,7 @@
     "eslint-plugin-react-refresh": "^0.4.19",
     "eslint-plugin-storybook": "^0.12.0",
     "globals": "^15.15.0",
+    "husky": "^9.1.7",
     "jsdom": "^26.0.0",
     "playwright": "^1.51.1",
     "react": "^18.0.0",
