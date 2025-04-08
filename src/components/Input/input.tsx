@@ -1,6 +1,7 @@
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
 import classNames from "classnames";
 import { InputHTMLAttributes, useState } from "react";
+import React from "react";
 import Icon from "../Icon/icon";
 type InputSize = 'lg' | 'sm';
 export interface InputProps extends Omit<InputHTMLAttributes<HTMLInputElement>,'size'>{
@@ -21,7 +22,7 @@ export interface InputProps extends Omit<InputHTMLAttributes<HTMLInputElement>,'
  * 输入框组件，可以用来收集用户的信息。当然，你也可以随便写点什么
  * ### 引入方法
  * ```javascript
- * import { Input } from 'at-ui'
+ * import { Input } from 'atian-ui'
  * ```
  * 支持HTMLInput的所有基本属性
  * ### 代码示例

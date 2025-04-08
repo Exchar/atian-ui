@@ -10,7 +10,7 @@ AutoComplete 组件是一个输入框，用户在输入时会自动弹出下拉�
 
 # 引入方式
 ```javascript
-import { AutoComplete } from 'at-ui'
+import { AutoComplete } from 'atian-ui'
 ```
 
 # 简单使用
@@ -38,7 +38,7 @@ AutoComplete 组件允许开发者自定义下拉建议列表的模板。可以�
 
 </Canvas>
 
-# 异步fetchsuggestions
+# 异步加载数据
 AutoComplete 组件支持异步获取下拉建议列表。可以通过 `fetchSuggestions` 属性传入一个函数，返回一个 Promise 对象。以下是一个示例：
 
 <Canvas  of={AutoCompleteStories.asyncDataItemComplete} source={{

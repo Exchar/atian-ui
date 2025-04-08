@@ -34,7 +34,7 @@ export const MenuContext = createContext<IMenuContext>({index: '0'})
  * 导航菜单组件，可以用来展示网站的导航菜单。
  * ### 引入方法
  * ```javascript
- * import { Menu,MenuItem,SubMenu } from 'at-ui'
+ * import { Menu,MenuItem,SubMenu } from 'atian-ui'
  * ```
  * ### 代码示例
  * @param props 
@@ -71,10 +71,10 @@ export const Menu: React.FC<MenuProps> = (props)=> {
         return React.Children.map(children,(child,index)=> {
             // ReactElement<P, React.FunctionComponent<P>>
             const childElement = child as React.ReactElement<MenuItemProps,React.FunctionComponent<MenuItemProps>>;
-            const {name} = childElement.type;
+            const {displayName} = childElement.type;
             // console.log(childElement,name);
             
-            if(name === 'MenuItem' || name==='SubMenu'){
+            if(displayName === 'MenuItem' || displayName==='SubMenu'){
                 return React.cloneElement(childElement,{
                     index: index.toString()
                 })

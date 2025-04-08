@@ -39,7 +39,7 @@ export type ButtonProps = Partial<NativeButtonProps & AnchorButtonProps>
  * 页面中最常用的按钮组件，你可以使用它来触发事件或提交表单。
  * ### 引入方法
  * ```javascript
- * import { Button } from 'at-ui'
+ * import { Button } from 'atian-ui'
  * ```
  * ### 代码示例
  * @param props

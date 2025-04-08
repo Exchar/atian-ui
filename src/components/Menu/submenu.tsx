@@ -22,7 +22,7 @@ export const SubMenu:React.FC<SubMenuProps> = (props)=> {
     } = props;
     const context = useContext(MenuContext)
     const openedSubmenus = context.defaultOpenSubmenus as string[]
-    const isOpened = (index && context.mode==='vertical') ? openedSubmenus.includes(index):false
+    const isOpened = (index && context.mode==='vertical') ? !!openedSubmenus.find(item=>item===index):false
     const [menuOpen,setMenuOpen] = useState(isOpened)
     const classes = classNames('at-menu-item submenu-item',className,{
         'is-active': context.index===index,
@@ -57,9 +57,10 @@ export const SubMenu:React.FC<SubMenuProps> = (props)=> {
             'menu-opened': menuOpen
         })
         const childrenComponent = React.Children.map(children,(child,i)=> {
-            const childElement = child as React.ReactElement<SubMenuProps,React.FunctionComponent<SubMenuProps>>;
-            const {name} = childElement.type;
-            if(name ==='MenuItem'){
+            const childElement = child as React.ReactElement<SubMenuProps,React.FC<SubMenuProps>>;
+            console.log(childElement);
+            const {displayName} = childElement.type;
+            if(displayName ==='MenuItem'){
                 return React.cloneElement(childElement,{
                     index: `${index}-${i}`
                 })

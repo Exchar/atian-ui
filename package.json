@@ -1,15 +1,47 @@
 {
-  "name": "at-ui",
-  "private": true,
-  "version": "0.0.0",
+  "name": "atian-ui",
+  "version": "0.1.0",
+  "description": "A React component library for building user interfaces.",
+  "author": "Exchar",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://gitee.com/Exchar/atian-ui.git"
+  },
+  "homepage": "https://gitee.com/Exchar/atian-ui",
+  "bugs": {
+    "url": "https://gitee.com/Exchar/atian-ui/issues"
+  },
+  "keywords": [
+    "react",
+    "component",
+    "library",
+    "ui",
+    "design"
+  ],
+  "private": false,
   "type": "module",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/umd/index.js",
+  "module": "./dist/atian-ui.es.js",
+  "exports": {
+    ".": {
+      "import": "./dist/es/index.js",
+      "require": "./dist/umd/index.js"
+    },
+    "./dist/index.css": "./dist/index.css"
+  },
   "scripts": {
-    "dev": "vite",
-    "build": "tsc -b && vite build",
+    "clean": "rimraf dist",
+    "build:ts": "tsc -p tsconfig.build.json",
+    "build": "vite build",
+    "build:css": "sass src/style/index.scss dist/style.css",
     "lint": "eslint .",
     "preview": "vite preview",
     "test": "vitest",
-    "storybook": "storybook dev -p 6006",
+    "dev": "storybook dev -p 6006",
     "build-storybook": "storybook build --docs"
   },
   "dependencies": {
@@ -20,16 +52,21 @@
     "@fortawesome/react-fontawesome": "^0.2.2",
     "animate.css": "^4.1.1",
     "classnames": "^2.5.1",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
     "react-transition-group": "^4.4.5",
     "sass": "^1.86.0",
     "vite-plugin-graphql-loader": "^4.0.4"
   },
+  "peerDependencies": {
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
   "devDependencies": {
     "@chromatic-com/storybook": "3",
     "@eslint/js": "^9.21.0",
-    "@storybook/preset-scss": "^1.0.3",
+    "@storybook/addon-actions": "8.6.11",
     "@storybook/addon-docs": "^8.6.11",
     "@storybook/addon-essentials": "8.6.11",
     "@storybook/addon-onboarding": "8.6.11",
@@ -37,6 +74,7 @@
     "@storybook/blocks": "8.6.11",
     "@storybook/builder-vite": "^8.6.11",
     "@storybook/experimental-addon-test": "8.6.11",
+    "@storybook/preset-scss": "^1.0.3",
     "@storybook/react": "8.6.11",
     "@storybook/react-vite": "^8.6.11",
     "@storybook/test": "8.6.11",
@@ -45,6 +83,7 @@
     "@testing-library/react": "^16.2.0",
     "@types/classnames": "^2.3.4",
     "@types/jest": "^29.5.14",
+    "@types/node": "^22.14.0",
     "@types/react": "^19.0.12",
     "@types/react-dom": "^19.0.4",
     "@types/react-transition-group": "^4.4.12",
@@ -59,13 +98,18 @@
     "globals": "^15.15.0",
     "jsdom": "^26.0.0",
     "playwright": "^1.51.1",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
     "remark-gfm": "^4.0.1",
+    "rimraf": "^6.0.1",
+    "rollup-plugin-exclude-dependencies-from-bundle": "^1.1.24",
     "storybook": "8.6.11",
     "ts-jest": "^29.3.0",
     "ts-node": "^10.9.2",
     "typescript": "~5.7.2",
     "typescript-eslint": "^8.24.1",
     "vite": "^6.2.0",
+    "vite-plugin-dts": "^4.5.3",
     "vitest": "^3.0.9"
   },
   "eslintConfig": {

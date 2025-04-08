@@ -45,7 +45,6 @@ const dropDownComponent:React.FC<DropDownProps> = forwardRef<EDropdownProps,Drop
     const renderTemplate = useMemo(()=>{
         return renderOption ? renderOption : (item:DataSourceType) => <span>{item.value}</span>
     },[renderOption])
-    console.log('loading',loading,suggestions,showDropDown);
     // 设置高亮
     const [highlightIndex, setHighlightIndex] = useState(-1)
     const highlight = (index: number)=> {
@@ -128,14 +127,14 @@ const dropDownComponent:React.FC<DropDownProps> = forwardRef<EDropdownProps,Drop
 const DropDown = React.memo(dropDownComponent, (prevProps, nextProps) => {
     return JSON.stringify(prevProps.suggestions) === JSON.stringify(nextProps.suggestions) 
     && prevProps.loading === nextProps.loading && prevProps.showDropDown === nextProps.showDropDown
-    && prevProps.dropDownStyle === nextProps.dropDownStyle
+    && JSON.stringify(prevProps.dropDownStyle) === JSON.stringify(nextProps.dropDownStyle)
 })
 
 /**
  * AutoComplete是一个自动补全的输入框，可以根据输入的内容动态加载数据，常用于搜索框的自动补全。
  * ### 引入方法
  * ```javascript
- * import { AutoComplete } from 'at-ui'
+ * import { AutoComplete } from 'atian-ui'
  * ```
  * ### 代码示例
  * 
@@ -164,7 +163,7 @@ export function AutoComplete(props:AutoCompleteProps) {
         setShowDropDown(false)
     })
     useEffect(()=>{
-        console.log('执行了debounce',debouncedValue);
+        // console.log('执行了debounce',debouncedValue);
         
         if(debouncedValue && triggerSearch.current){
             // 触发搜索
@@ -176,8 +175,9 @@ export function AutoComplete(props:AutoCompleteProps) {
                     setLoading(false)
                     setShowDropDown(data.length > 0)
                     setSuggestions(data)
-                }).finally(()=>{
+                }).catch((err)=>{
                     setLoading(false)
+                    throw new Error(err)
                 })
             }else{
                 setSuggestions(results)

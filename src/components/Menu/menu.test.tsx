@@ -23,7 +23,7 @@ const generateMenu = (props:MenuProps)=> {
         <MenuItem disabled>disabled</MenuItem>
         <MenuItem>link 3</MenuItem>
         <SubMenu title='dropdown' data-testid='test-submenu'>
-          <MenuItem>submenu item 1</MenuItem>
+          <MenuItem data-testid='submenu1'>submenu item 1</MenuItem>
           <MenuItem>submenu item 2</MenuItem>
         </SubMenu>
       </Menu>)
@@ -79,10 +79,16 @@ describe('test Menu and MenuItem component',()=> {
     it('should display dropdown items when hover on subMenu',async ()=> {
         // cleanup()
         // const wrapper = render(generateMenu(testProps))
-        expect(wrapper.queryByText('submenu item 1')).not.toBeVisible()
+        // wrapper.debug()
+        const testSubmenu = wrapper.queryByTestId('submenu1')
+        expect(testSubmenu).not.toBeInTheDocument()
         const dropdownElement = wrapper.getByText('dropdown')
         fireEvent.mouseEnter(dropdownElement)
+        await waitFor(() => {
             expect(wrapper.getByText('submenu item 1')).toBeVisible()
+        },{
+            timeout: 400
+        })
         const submenuElement = wrapper.getByText('submenu item 1')
         fireEvent.click(submenuElement)
         expect(testProps.onSelect).toHaveBeenCalledWith('3-0')
